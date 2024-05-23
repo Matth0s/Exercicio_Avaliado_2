@@ -1,7 +1,7 @@
 #include "Utils.h"
 
-bool Utils::numeroInvalido(string numero) {
-
+bool Utils::numeroInvalido(string numero)
+{
 	for (unsigned i = 0; i < numero.size(); i++) {
 		if (!isdigit(numero[i]) && numero[i] != '.') {
 			return true;
@@ -10,8 +10,8 @@ bool Utils::numeroInvalido(string numero) {
 	return false;
 }
 
-vector<string> Utils::linhaToVector(ifstream &file) {
-
+vector<string> Utils::linhaToVector(ifstream &file)
+{
 	vector<string> temp;
 	stringstream buffer;
 	string linha;
@@ -29,11 +29,11 @@ vector<string> Utils::linhaToVector(ifstream &file) {
 	return (temp);
 }
 
-int Utils::lerArquivoGrafo(string nomeArquivo, vector<vector<string>> &dados) {
-
+int Utils::lerArquivoGrafo(string nomeArquivo, vector< vector<string> > &dados)
+{
 	ifstream file;
 
-	file.open(nomeArquivo, ifstream::in);
+	file.open(nomeArquivo.c_str(), ifstream::in);
 	if (!file.is_open()) {
 		cout << "Falha ao Abrir o Arquivo: " << nomeArquivo << endl;
 		return (1);

@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include "Vertice.h"
 
 using namespace std;
 
@@ -20,7 +21,7 @@ class Utils {
 
 		/* Realiza a leitura do arquivo indicado, valida e extrai os dados */
 		static int				lerArquivoGrafo(string nomeArquivo,
-												vector<vector<string>> &dados);
+											vector< vector<string> > &dados);
 };
 
 #endif

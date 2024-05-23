@@ -1,7 +1,10 @@
 #______________________________________//_______________________________________
 SRC_DIR		=	./source \
 				./test
-SRC			=	Utils.cpp
+SRC			=	Utils.cpp \
+				Grafo.cpp \
+				Aresta.cpp \
+				Vertice.cpp
 SRC_MAIN	=	main.cpp
 SRC_TESTE	=	teste_main.cpp
 
@@ -11,7 +14,10 @@ OBJ_MAIN	=	$(SRC_MAIN:%.cpp=$(OBJ_DIR)/%.o)
 OBJ_TESTE	=	$(SRC_TESTE:%.cpp=$(OBJ_DIR)/%.o)
 
 INCD_DIR	=	-I ./include
-INCD		=	Utils.h
+INCD		=	Utils.h \
+				Grafo.h \
+				Aresta.h \
+				Vertice.h
 #______________________________________//_______________________________________
 vpath %.cpp $(SRC_DIR)
 vpath %.h $(INCD_DIR)
@@ -20,7 +26,7 @@ TARGET	=	main
 
 TESTE	=	teste
 
-CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 CC		=	g++
 
