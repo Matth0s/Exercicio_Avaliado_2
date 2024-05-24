@@ -2,13 +2,23 @@
 #define VERTICE_H
 
 #include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
 #include "Aresta.h"
 
 using namespace std;
 
 class Aresta;
+class Vertice;
+
+/* Utilizada para juntar o Vertice vizinho com o grau da Aresta que os liga. */
+struct Vizinho
+{
+	Vertice	*v;
+	double	grau;
+
+	Vizinho(Vertice *v, double grau) : v(v), grau(grau) {};
+};
 
 class Vertice
 {
@@ -26,6 +36,9 @@ class Vertice
 		double	getCentralidade(void) const;
 		void	addAresta(Aresta* aresta);
 		void	removeAresta(Aresta* aresta);
+
+		/* Retorna todos os Vertices vizinhos de Aresta. */
+		vector<Vizinho>	getVizinhos(void);
 };
 
 #endif

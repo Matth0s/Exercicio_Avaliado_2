@@ -39,7 +39,7 @@ void	Vertice::addAresta(Aresta* aresta)
 	vector<Aresta*>::iterator	it;
 
 	// Antes de adicionar, verifica se a Aresta parametro já esta na lista
-	it = std::find(_arestas.begin(), _arestas.end(), aresta);
+	it = find(_arestas.begin(), _arestas.end(), aresta);
 	if (it == _arestas.end()) {
 		_arestas.push_back(aresta);
 	}
@@ -50,8 +50,21 @@ void	Vertice::removeAresta(Aresta* aresta)
 	vector<Aresta*>::iterator	it;
 
 	// Antes de remover, verifica se a Aresta parametro existe na lista
-	it = std::find(_arestas.begin(), _arestas.end(), aresta);
+	it = find(_arestas.begin(), _arestas.end(), aresta);
 	if (it != _arestas.end()) {
 		_arestas.erase(it);
 	}
+}
+
+vector<Vizinho>	Vertice::getVizinhos(void)
+{
+	vector<Vizinho>	vizinhos;
+
+	for (unsigned i = 0; i < _arestas.size(); i++) {
+		vizinhos.push_back(Vizinho(
+			_arestas.at(i)->getOutroVertice(this),
+			_arestas.at(i)->getGrau()
+		));
+	}
+	return (vizinhos);
 }

@@ -3,10 +3,10 @@
 
 #include <iostream>
 #include <iomanip>
-#include <string>
 #include <vector>
 #include "Vertice.h"
 #include "Aresta.h"
+#include "Caminho.h"
 
 using namespace std;
 
@@ -21,7 +21,7 @@ class Grafo
 														 string rotulo2) const;
 
 		/* Verifica se existe alguma Aresta ligando os Vertices parametro. */
-		bool	_checarExistenciaAresta(Vertice *v1, Vertice *v2) const;
+		Aresta*	_checarExistenciaAresta(Vertice *v1, Vertice *v2) const;
 
 		/* Formatação padronizada para exibição do cabeçalho. */
 		void	_exibirCabecalho(string texto) const;
@@ -53,6 +53,8 @@ class Grafo
 		/* Exibe de maneira formatada o Vertice com maior centralidade de grau
 		existente no Grafo. */
 		void	exibirMaiorCentralidade(void) const;
+
+		void	teste();
 };
 
 #endif

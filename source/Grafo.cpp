@@ -2,8 +2,7 @@
 
 using namespace std;
 
-Grafo::Grafo(void)
-	: _vertices(), _arestas() {}
+Grafo::Grafo(void) : _vertices(), _arestas() {}
 
 Grafo::~Grafo(void)
 {
@@ -33,41 +32,41 @@ vector<Vertice *> Grafo::_checarExistenciaVertices(string rotulo1,
 	return (vertices);
 }
 
-bool Grafo::_checarExistenciaAresta(Vertice *v1, Vertice *v2) const
+Aresta* Grafo::_checarExistenciaAresta(Vertice *v1, Vertice *v2) const
 {
 	for (unsigned i = 0; i < _arestas.size(); i++) {
-		if ((_arestas.at(i)->getLeftVertice() == v1
-				&& _arestas.at(i)->getRightVertice() == v2)
-			|| (_arestas.at(i)->getLeftVertice() == v2
-				 && _arestas.at(i)->getRightVertice() == v1))
+		if ((_arestas.at(i)->getVertice1() == v1
+				&& _arestas.at(i)->getVertice2() == v2)
+			|| (_arestas.at(i)->getVertice1() == v2
+				 && _arestas.at(i)->getVertice2() == v1))
 		{
-			return (true);
+			return (_arestas.at(i));
 		}
 	}
-	return (false);
+	return (NULL);
 }
 
-void Grafo::_exibirCabecalho(string texto) const
+void	Grafo::_exibirCabecalho(string texto) const
 {
 	cout << "\n/¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨   "
 		 << left << setw(15) << texto
 		 << right << "¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n|\n";
 }
 
-void Grafo::_exibirRodape(void) const
+void	Grafo::_exibirRodape(void) const
 {
 	cout << "\n\\___________________________________________________________\n"
 		 << endl;
 }
 
-void Grafo::_exibirGrafoVazio(void) const{
+void	Grafo::_exibirGrafoVazio(void) const{
 
 	_exibirCabecalho("GRAFO VAZIO");
 	cout << "|";
 	_exibirRodape();
 }
 
-void Grafo::addAresta(string rotulo1, string rotulo2, string grau)
+void	Grafo::addAresta(string rotulo1, string rotulo2, string grau)
 {
 	vector<Vertice *> vertices;
 	Aresta *aresta;
@@ -109,7 +108,7 @@ void Grafo::addAresta(string rotulo1, string rotulo2, string grau)
 	_arestas.push_back(aresta);
 }
 
-void Grafo::exibirArestas(void) const
+void	Grafo::exibirArestas(void) const
 {
 	if (!_vertices.size()) {
 		_exibirGrafoVazio();
@@ -125,9 +124,9 @@ void Grafo::exibirArestas(void) const
 			cout << "| ";
 		}
 		cout << "("
-			 << _arestas.at(i)->getLeftVertice()->getRotulo()
+			 << _arestas.at(i)->getVertice1()->getRotulo()
 		 	 << " - "
-		 	 << _arestas.at(i)->getRightVertice()->getRotulo()
+		 	 << _arestas.at(i)->getVertice2()->getRotulo()
 		 	 << ": "
 		 	 << _arestas.at(i)->getGrau()
 			 << ")   ";
@@ -135,7 +134,7 @@ void Grafo::exibirArestas(void) const
 	_exibirRodape();
 }
 
-void Grafo::exibirVertices(void) const
+void	Grafo::exibirVertices(void) const
 {
 	if (!_vertices.size()) {
 		_exibirGrafoVazio();
@@ -158,7 +157,7 @@ void Grafo::exibirVertices(void) const
 	_exibirRodape();
 }
 
-void Grafo::exibirDensidade(void) const
+void	Grafo::exibirDensidade(void) const
 {
 	double	nArestas = _arestas.size();
 	double	nVertices = _vertices.size();
@@ -174,7 +173,7 @@ void Grafo::exibirDensidade(void) const
 	_exibirRodape();
 }
 
-void Grafo::exibirMaiorCentralidade(void) const
+void	Grafo::exibirMaiorCentralidade(void) const
 {
 	Vertice	*vertice = NULL;
 
@@ -197,4 +196,25 @@ void Grafo::exibirMaiorCentralidade(void) const
 	cout << "| Com grau total igual a : "
 		 << vertice->getCentralidade();
 	_exibirRodape();
+}
+
+void	Grafo::teste()
+{
+	Vertice	*vertice = _vertices.at(0);
+	vector<Rota> rotas = Caminho(_vertices, vertice).getRotas();
+
+	cout << "\n/¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n";
+	for (unsigned i = 0; i < rotas.size(); i++) {
+		cout << "| "
+			 << vertice->getRotulo()
+			 << " -> ("
+			 << rotas.at(i).ultimo->getRotulo()
+			 << ") -> "
+			 << rotas.at(i).destino->getRotulo()
+			 << " :  "
+			 << rotas.at(i).custo
+			 << endl;
+	}
+	cout << "\\___________________________________________________________\n"
+		 << endl;
 }

@@ -4,7 +4,8 @@ SRC_DIR		=	./source \
 SRC			=	Utils.cpp \
 				Grafo.cpp \
 				Aresta.cpp \
-				Vertice.cpp
+				Vertice.cpp \
+				Caminho.cpp
 SRC_MAIN	=	main.cpp
 SRC_TESTE	=	teste_main.cpp
 
@@ -17,7 +18,8 @@ INCD_DIR	=	-I ./include
 INCD		=	Utils.h \
 				Grafo.h \
 				Aresta.h \
-				Vertice.h
+				Vertice.h \
+				Caminho.h
 #______________________________________//_______________________________________
 vpath %.cpp $(SRC_DIR)
 vpath %.h $(INCD_DIR)
