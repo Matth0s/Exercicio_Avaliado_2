@@ -11,17 +11,17 @@
 
 using namespace std;
 
-class Utils {
-
+class Utils
+{
 	public:
 		/* Verifica se a string é composta somente de caracteres numericos ou
-		'.' (para decimais) */
+		'.' (para decimais). */
 		static bool				numeroInvalido(string numero);
 
-		/* Converte uma linha do arquivo em um vetor de string com 3 elementos */
+		/* Converte uma linha do arquivo em um vetor de string com 3 elementos. */
 		static vector<string>	linhaToVector(ifstream &file);
 
-		/* Realiza a leitura do arquivo indicado, valida e extrai os dados */
+		/* Realiza a leitura do arquivo indicado, valida e extrai os dados. */
 		static int				lerArquivoGrafo(string nomeArquivo,
 											vector< vector<string> > &dados);
 };

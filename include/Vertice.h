@@ -10,8 +10,8 @@ using namespace std;
 
 class Aresta;
 
-class Vertice {
-
+class Vertice
+{
 	private:
 		string			_rotulo;
 		vector<Aresta*>	_arestas;
@@ -23,9 +23,9 @@ class Vertice {
 
 		string	getRotulo(void) const;
 		int		getTotalArestas(void) const;
+		double	getCentralidade(void) const;
 		void	addAresta(Aresta* aresta);
 		void	removeAresta(Aresta* aresta);
-
 };
 
 #endif

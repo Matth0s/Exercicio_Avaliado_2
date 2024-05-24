@@ -18,7 +18,7 @@ Grafo::~Grafo(void)
 }
 
 vector<Vertice *> Grafo::_checarExistenciaVertices(string rotulo1,
-														string rotulo2)
+														string rotulo2) const
 {
 	vector<Vertice *> vertices({NULL, NULL});
 
@@ -33,7 +33,7 @@ vector<Vertice *> Grafo::_checarExistenciaVertices(string rotulo1,
 	return (vertices);
 }
 
-bool Grafo::_checarExistenciaAresta(Vertice *v1, Vertice *v2)
+bool Grafo::_checarExistenciaAresta(Vertice *v1, Vertice *v2) const
 {
 	for (unsigned i = 0; i < _arestas.size(); i++) {
 		if ((_arestas.at(i)->getLeftVertice() == v1
@@ -45,6 +45,26 @@ bool Grafo::_checarExistenciaAresta(Vertice *v1, Vertice *v2)
 		}
 	}
 	return (false);
+}
+
+void Grafo::_exibirCabecalho(string texto) const
+{
+	cout << "\n/¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨   "
+		 << left << setw(15) << texto
+		 << right << "¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n|\n";
+}
+
+void Grafo::_exibirRodape(void) const
+{
+	cout << "\n\\___________________________________________________________\n"
+		 << endl;
+}
+
+void Grafo::_exibirGrafoVazio(void) const{
+
+	_exibirCabecalho("GRAFO VAZIO");
+	cout << "|";
+	_exibirRodape();
 }
 
 void Grafo::addAresta(string rotulo1, string rotulo2, string grau)
@@ -75,6 +95,10 @@ void Grafo::addAresta(string rotulo1, string rotulo2, string grau)
 	// valor 1 será utilizado como padrão
 	try {
 		grauConvertido = stod(grau);
+		if (grauConvertido <= 0) {
+			throw invalid_argument("O grau da Aresta precisa ser maior que 0!");
+		}
+
 	} catch (...) {
 		grauConvertido = 1;
 		cerr << "Erro: valor " << grau << " não pode ser convertido"
@@ -85,11 +109,20 @@ void Grafo::addAresta(string rotulo1, string rotulo2, string grau)
 	_arestas.push_back(aresta);
 }
 
-void Grafo::exibirArestas(void)
+void Grafo::exibirArestas(void) const
 {
+	if (!_vertices.size()) {
+		_exibirGrafoVazio();
+		return ;
+	}
+
+	_exibirCabecalho("ENLACES");
 	for (unsigned i = 0; i < _arestas.size(); i++) {
 		if (i % 4 == 0) {
-			cout << endl;
+			if (i != 0) {
+				cout << endl;
+			}
+			cout << "| ";
 		}
 		cout << "("
 			 << _arestas.at(i)->getLeftVertice()->getRotulo()
@@ -99,21 +132,69 @@ void Grafo::exibirArestas(void)
 		 	 << _arestas.at(i)->getGrau()
 			 << ")   ";
 	}
-	cout << endl;
+	_exibirRodape();
 }
 
-void Grafo::exibirVertices(void)
+void Grafo::exibirVertices(void) const
 {
-	cout << "{ ";
+	if (!_vertices.size()) {
+		_exibirGrafoVazio();
+		return ;
+	}
+
+	_exibirCabecalho("VERTICES");
 	for (unsigned i = 0; i < _vertices.size(); i++) {
-		if (i % 10 == 0 && i != 0) {
-			cout << endl;
+		if (i % 10 == 0) {
+			if (i != 0) {
+				cout << endl;
+			}
+			cout << "| ";
 		}
 		cout << _vertices.at(i)->getRotulo();
 		if (i != _vertices.size() - 1) {
 			cout << " ,  ";
 		}
 	}
-	cout << " }";
-	cout << endl;
+	_exibirRodape();
+}
+
+void Grafo::exibirDensidade(void) const
+{
+	double	nArestas = _arestas.size();
+	double	nVertices = _vertices.size();
+
+	if (!_vertices.size()) {
+		_exibirGrafoVazio();
+		return ;
+	}
+
+	_exibirCabecalho("DENSIDADE");
+	cout << "| A Densidade do Grafo é igual a: "
+		 << (nArestas) / (nVertices * (nVertices - 1) / 2);
+	_exibirRodape();
+}
+
+void Grafo::exibirMaiorCentralidade(void) const
+{
+	Vertice	*vertice = NULL;
+
+	if (!_vertices.size()) {
+		_exibirGrafoVazio();
+		return ;
+	}
+
+	vertice = _vertices.at(0);
+	for (unsigned i = 0; i < _vertices.size(); i++) {
+		if (_vertices.at(i)->getCentralidade() > vertice->getCentralidade()) {
+			vertice = _vertices.at(i);
+		}
+	}
+
+	_exibirCabecalho("CENTRALIDADE");
+	cout << "| O vertice com maior centralidade de grau é: "
+		 << vertice->getRotulo()
+		 << endl;
+	cout << "| Com grau total igual a : "
+		 << vertice->getCentralidade();
+	_exibirRodape();
 }

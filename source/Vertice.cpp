@@ -24,6 +24,16 @@ int		Vertice::getTotalArestas(void) const {
 	return (static_cast<int>(_arestas.size()));
 }
 
+double	Vertice::getCentralidade(void) const
+{
+	double centralidade = 0;
+
+	for (unsigned i = 0; i < _arestas.size(); i++) {
+		centralidade += _arestas.at(i)->getGrau();
+	}
+	return (centralidade);
+}
+
 void	Vertice::addAresta(Aresta* aresta)
 {
 	vector<Aresta*>::iterator	it;

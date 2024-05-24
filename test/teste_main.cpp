@@ -131,10 +131,15 @@ int main (int argc, char *argv[])
 	}
 
 	{
-		cout << "____________________________\\\\_____________________________"
-			 << endl
-			 << endl;
+		Grafo					g1;
 
+		g1.exibirArestas();
+		g1.exibirVertices();
+		g1.exibirDensidade();
+		g1.exibirMaiorCentralidade();
+	}
+
+	{
 		vector< vector<string> > dados;
 		Grafo					g1;
 
@@ -155,10 +160,8 @@ int main (int argc, char *argv[])
 
 		g1.exibirArestas();
 		g1.exibirVertices();
-
-		cout << "____________________________//_____________________________"
-			 << endl
-			 << endl;
+		g1.exibirDensidade();
+		g1.exibirMaiorCentralidade();
 	}
 
 	return (0);

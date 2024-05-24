@@ -5,8 +5,8 @@
 
 class Vertice;
 
-class Aresta {
-
+class Aresta
+{
 	private:
 		Vertice	*_left;
 		Vertice	*_right;
