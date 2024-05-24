@@ -26,7 +26,7 @@ TARGET	=	main
 
 TESTE	=	teste
 
-CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror -std=c++11 -fsanitize=address
 
 CC		=	g++
 

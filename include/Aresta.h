@@ -1,10 +1,7 @@
 #ifndef ARESTA_H
 #define ARESTA_H
 
-#include <iostream>
 #include "Vertice.h"
-
-using namespace std;
 
 class Vertice;
 

@@ -5,6 +5,8 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include "Grafo.h"
+#include "Aresta.h"
 #include "Vertice.h"
 
 using namespace std;

@@ -1,7 +1,5 @@
 #include "Aresta.h"
 
-using namespace std;
-
 Aresta::Aresta(Vertice *left, Vertice *right, double grau = 1)
  : _left(left), _right(right), _grau(grau)
 {

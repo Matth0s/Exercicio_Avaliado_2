@@ -2,8 +2,8 @@
 #define VERTICE_H
 
 #include <iostream>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 #include "Aresta.h"
 
 using namespace std;

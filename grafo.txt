@@ -1,4 +1,23 @@
-A B 1.1
-C	D	3.3
+A	E	14
+A	F	9
+A	B	7
 
-E#	F 4.4
+B	A	7
+B	F	10
+B	C	15
+
+C	B	15
+C	F	11
+C	D	6
+
+D	C	6
+D	E	9
+
+E	D	9
+E	F	2
+E	A	14
+
+F	A	9
+F	B	10
+F	C	11
+F	E	2
