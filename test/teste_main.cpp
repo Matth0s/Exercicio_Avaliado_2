@@ -13,156 +13,131 @@ using namespace std;
 
 int main (int argc, char *argv[])
 {
-	// {
-	// 	cout << "____________________________\\\\_____________________________"
-	// 		 << endl
-	// 		 << endl;
+	{
+		cout << "____________________________\\\\_____________________________"
+			 << endl
+			 << endl;
 
-	// 	vector< vector<string> > dados;
+		vector< vector<string> > dados;
 
-	// 	if (argc < 2) {
-	// 		cout << "É necessario um nome de arquivo como argumento!" <<endl;
-	// 		cout << "Programa Encerrado!" << endl;
-	// 		return (1);
-	// 	}
+		if (argc < 2) {
+			cout << "É necessario um nome de arquivo como argumento!" <<endl;
+			cout << "Programa Encerrado!" << endl;
+			return (1);
+		}
 
-	// 	if (Utils::lerArquivoGrafo(argv[1], dados)) {
-	// 		cout << "Programa Encerrado!" << endl;
-	// 		return (1);
-	// 	}
+		if (Utils::lerArquivoGrafo(argv[1], dados)) {
+			cout << "Programa Encerrado!" << endl;
+			return (1);
+		}
 
-	// 	for (unsigned i = 0; i < dados.size(); i++) {
-	// 		cout << "[  ";
-	// 		for (unsigned j = 0; j < dados[i].size(); j++) {
-	// 			cout << dados[i][j] << "  ";
-	// 		}
-	// 		cout << "]" << endl;
-	// 	}
+		for (unsigned i = 0; i < dados.size(); i++) {
+			cout << "[  ";
+			for (unsigned j = 0; j < dados[i].size(); j++) {
+				cout << dados[i][j] << "  ";
+			}
+			cout << "]" << endl;
+		}
 
-	// 	cout << "____________________________//_____________________________"
-	// 		 << endl
-	// 		 << endl;
-	// }
+		cout << "____________________________//_____________________________"
+			 << endl
+			 << endl;
+	}
 
-	// {
-	// 	cout << "____________________________\\\\_____________________________"
-	// 		 << endl
-	// 		 << endl;
+	{
+		cout << "____________________________\\\\_____________________________"
+			 << endl
+			 << endl;
 
-	// 	Vertice	ve1;
-	// 	Vertice	ve2("teste");
-	// 	Vertice	ve3(ve2);
-	// 	string	teste("teste");
+		Vertice	ve1;
+		Vertice	ve2("teste");
+		Vertice	ve3(ve2);
+		string	teste("teste");
 
-	// 	cout << ( ve1.getRotulo().empty() ? "✅" : "❌");
-	// 	cout << ( !teste.compare(ve2.getRotulo()) ? "✅" : "❌");
-	// 	cout << ( !teste.compare(ve3.getRotulo()) ? "✅" : "❌");
-	// 	cout << endl;
+		cout << ( ve1.getRotulo().empty() ? "✅" : "❌");
+		cout << ( !teste.compare(ve2.getRotulo()) ? "✅" : "❌");
+		cout << ( !teste.compare(ve3.getRotulo()) ? "✅" : "❌");
+		cout << endl;
 
-	// 	cout << "____________________________//_____________________________"
-	// 		 << endl
-	// 		 << endl;
-	// }
+		cout << "____________________________//_____________________________"
+			 << endl
+			 << endl;
+	}
 
-	// {
-	// 	cout << "____________________________\\\\_____________________________"
-	// 		 << endl
-	// 		 << endl;
+	{
+		cout << "____________________________\\\\_____________________________"
+			 << endl
+			 << endl;
 
-	// 	Vertice	v1("A");
-	// 	Vertice	v2("B");
+		Vertice	v1("A");
+		Vertice	v2("B");
 
-	// 	cout << "   Antes Criação Aresta" << endl;
-	// 	cout << "v1: " << v1.getTotalArestas() << endl;
-	// 	cout << "v2: " << v2.getTotalArestas() << endl;
+		cout << "   Antes Criação Aresta" << endl;
+		cout << "v1: " << v1.getTotalArestas() << endl;
+		cout << "v2: " << v2.getTotalArestas() << endl;
 
-	// 	Aresta*	a1 = new Aresta(&v1, &v2, 4);
+		Aresta*	a1 = new Aresta(&v1, &v2, 4);
 
-	// 	cout << "   Depois Criação Aresta" << endl;
-	// 	cout << a1->getLeftVertice()->getRotulo() << endl;
-	// 	cout << a1->getRightVertice()->getRotulo() << endl;
-	// 	cout << a1->getGrau() << endl;
+		cout << "   Depois Criação Aresta" << endl;
+		cout << a1->getVertice1()->getRotulo() << endl;
+		cout << a1->getVertice2()->getRotulo() << endl;
+		cout << a1->getGrau() << endl;
 
-	// 	cout << "v1: " << v1.getTotalArestas() << endl;
-	// 	cout << "v2: " << v2.getTotalArestas() << endl;
+		cout << "v1: " << v1.getTotalArestas() << endl;
+		cout << "v2: " << v2.getTotalArestas() << endl;
 
-	// 	delete a1;
+		delete a1;
 
-	// 	cout << "   Delete Aresta" << endl;
-	// 	cout << "v1: " << v1.getTotalArestas() << endl;
-	// 	cout << "v2: " << v2.getTotalArestas() << endl;
+		cout << "   Delete Aresta" << endl;
+		cout << "v1: " << v1.getTotalArestas() << endl;
+		cout << "v2: " << v2.getTotalArestas() << endl;
 
-	// 	cout << "____________________________//_____________________________"
-	// 		 << endl
-	// 		 << endl;
-	// }
+		cout << "____________________________//_____________________________"
+			 << endl
+			 << endl;
+	}
 
-	// {
-	// 	cout << "____________________________\\\\_____________________________"
-	// 		 << endl
-	// 		 << endl;
+	{
+		cout << "____________________________\\\\_____________________________"
+			 << endl
+			 << endl;
 
-	// 	Vertice*	v1 = new Vertice("A");
-	// 	Vertice*	v2 = new Vertice("B");
-	// 	Aresta*		a1 = new Aresta(v1, v2, 4);
+		Vertice*	v1 = new Vertice("A");
+		Vertice*	v2 = new Vertice("B");
+		Aresta*		a1 = new Aresta(v1, v2, 4);
 
 
-	// 	cout << "   Antes Deleção Vertices" << endl;
-	// 	cout << "left: " << a1->getLeftVertice() << endl;
-	// 	cout << "right: " << a1->getRightVertice() << endl;
+		cout << "   Antes Deleção Vertices" << endl;
+		cout << "left: " << a1->getVertice1() << endl;
+		cout << "right: " << a1->getVertice2() << endl;
 
-	// 	delete v1;
+		delete v1;
 
-	// 	cout << "\n   Deleção Vertice Left" << endl;
-	// 	cout << "left: " << a1->getLeftVertice() << endl;
-	// 	cout << "right: " << a1->getRightVertice() << endl;
+		cout << "\n   Deleção Vertice Left" << endl;
+		cout << "left: " << a1->getVertice1() << endl;
+		cout << "right: " << a1->getVertice2() << endl;
 
-	// 	delete v2;
+		delete v2;
 
-	// 	cout << "\n   Deleção Vertice Right" << endl;
-	// 	cout << "left: " << a1->getLeftVertice() << endl;
-	// 	cout << "right: " << a1->getRightVertice() << endl;
+		cout << "\n   Deleção Vertice Right" << endl;
+		cout << "left: " << a1->getVertice1() << endl;
+		cout << "right: " << a1->getVertice2() << endl;
 
-	// 	delete a1;
+		delete a1;
 
-	// 	cout << "____________________________//_____________________________"
-	// 		 << endl
-	// 		 << endl;
-	// }
+		cout << "____________________________//_____________________________"
+			 << endl
+			 << endl;
+	}
 
-	// {
-	// 	Grafo					g1;
+	{
+		Grafo					g1;
 
-	// 	g1.exibirArestas();
-	// 	g1.exibirVertices();
-	// 	g1.exibirDensidade();
-	// 	g1.exibirMaiorCentralidade();
-	// }
-
-	// {
-	// 	vector< vector<string> > dados;
-	// 	Grafo					g1;
-
-	// 	if (argc < 2) {
-	// 		cout << "É necessario um nome de arquivo como argumento!" <<endl;
-	// 		cout << "Programa Encerrado!" << endl;
-	// 		return (1);
-	// 	}
-
-	// 	if (Utils::lerArquivoGrafo(argv[1], dados)) {
-	// 		cout << "Programa Encerrado!" << endl;
-	// 		return (1);
-	// 	}
-
-	// 	for (unsigned i = 0; i < dados.size(); i++) {
-	// 		g1.addAresta(dados.at(i).at(0), dados.at(i).at(1), dados.at(i).at(2));
-	// 	}
-
-	// 	g1.exibirArestas();
-	// 	g1.exibirVertices();
-	// 	g1.exibirDensidade();
-	// 	g1.exibirMaiorCentralidade();
-	// }
+		g1.exibirArestas();
+		g1.exibirVertices();
+		g1.exibirDensidade();
+		g1.exibirMaiorCentralidade();
+	}
 
 	{
 		vector< vector<string> > dados;
@@ -183,9 +158,70 @@ int main (int argc, char *argv[])
 			g1.addAresta(dados.at(i).at(0), dados.at(i).at(1), dados.at(i).at(2));
 		}
 
-		g1.teste();
+		g1.exibirArestas();
+		g1.exibirVertices();
+		g1.exibirDensidade();
+		g1.exibirMaiorCentralidade();
 	}
 
+	{
+		vector< vector<string> > dados;
+		Grafo					g1;
+		string					origem;
+		string					destino;
+
+		if (argc < 2) {
+			cout << "É necessario um nome de arquivo como argumento!" <<endl;
+			cout << "Programa Encerrado!" << endl;
+			return (1);
+		}
+
+		if (Utils::lerArquivoGrafo(argv[1], dados)) {
+			cout << "Programa Encerrado!" << endl;
+			return (1);
+		}
+
+		for (unsigned i = 0; i < dados.size(); i++) {
+			g1.addAresta(dados.at(i).at(0), dados.at(i).at(1), dados.at(i).at(2));
+		}
+
+		g1.exibirVertices();
+
+		cout << "# Insira a Origem: ";
+		getline(cin, origem);
+		cout << endl;
+
+		cout << "# Insira o Destino: ";
+		getline(cin, destino);
+		cout << endl;
+
+		g1.exibirCaminho(origem, destino);
+	}
+
+	{
+		vector< vector<string> > dados;
+		Grafo					g1;
+		string					origem;
+		string					destino;
+
+		if (argc < 2) {
+			cout << "É necessario um nome de arquivo como argumento!" <<endl;
+			cout << "Programa Encerrado!" << endl;
+			return (1);
+		}
+
+		if (Utils::lerArquivoGrafo(argv[1], dados)) {
+			cout << "Programa Encerrado!" << endl;
+			return (1);
+		}
+
+		for (unsigned i = 0; i < dados.size(); i++) {
+			g1.addAresta(dados.at(i).at(0), dados.at(i).at(1), dados.at(i).at(2));
+		}
+
+		g1.exibirArestas();
+		g1.exibirMaiorCentralidadeProximade();
+	}
 
 	return (0);
 }

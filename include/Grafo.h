@@ -21,7 +21,9 @@ class Grafo
 														 string rotulo2) const;
 
 		/* Verifica se existe alguma Aresta ligando os Vertices parametro. */
-		Aresta*	_checarExistenciaAresta(Vertice *v1, Vertice *v2) const;
+		Aresta*		_checarExistenciaAresta(Vertice *v1, Vertice *v2) const;
+
+		Vertice*	_getVerticeByRotulo(string rotulo) const;
 
 		/* Formatação padronizada para exibição do cabeçalho. */
 		void	_exibirCabecalho(string texto) const;
@@ -32,6 +34,10 @@ class Grafo
 		/* Formatação para padronizar comportamento de metodos de exibição
 		quando o Grafo não possui Verices. */
 		void	_exibirGrafoVazio(void) const;
+
+		/* Função auxiliar para a exibição dos caminhos. */
+		void	_exibirCaminho(const vector<Rota> &rotas, Vertice *origem,
+									Vertice *destino) const;
 
 	public:
 		Grafo(void);
@@ -54,7 +60,13 @@ class Grafo
 		existente no Grafo. */
 		void	exibirMaiorCentralidade(void) const;
 
-		void	teste();
+		/* Exibe de maneira formatada toda a trajetoria do Vertice com rotulo
+		igual a rotuloOrigem até o Vertice com rotulo igual a rotuloDestino. */
+		void	exibirCaminho(string rotuloOrigem, string rotuloDestino) const;
+
+		/* Exibe de maneira formatada o Vertice com maior centralidade de grau
+		existente no Grafo. */
+		void	exibirMaiorCentralidadeProximade(void) const;
 };
 
 #endif
