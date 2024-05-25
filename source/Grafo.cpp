@@ -145,12 +145,36 @@ void	Grafo::addAresta(string rotulo1, string rotulo2, string grau)
 
 	} catch (...) {
 		grauConvertido = 1;
-		cerr << "Erro: valor " << grau << " não pode ser convertido"
+		cout << "\nErro: valor " << grau << " não pode ser convertido"
 			 << ", o valor 1.0 será utilizado" << endl;
 	}
 
 	aresta = new Aresta(vertices.at(0), vertices.at(1), grauConvertido);
 	_arestas.push_back(aresta);
+}
+
+void	Grafo::exibirVertices(void) const
+{
+	if (!_vertices.size()) {
+		_exibirGrafoVazio();
+		return ;
+	}
+
+	_exibirCabecalho("VERTICES");
+	for (unsigned i = 0; i < _vertices.size(); i++) {
+		if (i % 10 == 0) {
+			if (i != 0) {
+				cout << endl;
+			}
+			cout << "| ";
+		}
+		cout << _vertices.at(i)->getRotulo();
+		if (i != _vertices.size() - 1) {
+			cout << " ,  ";
+		}
+	}
+	cout << endl;
+	_exibirRodape();
 }
 
 void	Grafo::exibirArestas(void) const
@@ -175,30 +199,6 @@ void	Grafo::exibirArestas(void) const
 		 	 << ": "
 		 	 << _arestas.at(i)->getGrau()
 			 << ")   ";
-	}
-	cout << endl;
-	_exibirRodape();
-}
-
-void	Grafo::exibirVertices(void) const
-{
-	if (!_vertices.size()) {
-		_exibirGrafoVazio();
-		return ;
-	}
-
-	_exibirCabecalho("VERTICES");
-	for (unsigned i = 0; i < _vertices.size(); i++) {
-		if (i % 10 == 0) {
-			if (i != 0) {
-				cout << endl;
-			}
-			cout << "| ";
-		}
-		cout << _vertices.at(i)->getRotulo();
-		if (i != _vertices.size() - 1) {
-			cout << " ,  ";
-		}
 	}
 	cout << endl;
 	_exibirRodape();

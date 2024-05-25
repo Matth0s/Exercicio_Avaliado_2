@@ -19,7 +19,7 @@ class Utils
 		static bool				numeroInvalido(string numero);
 
 		/* Converte uma linha do arquivo em um vetor de string com 3 elementos. */
-		static vector<string>	linhaToVector(ifstream &file);
+		static vector<string>	linhaToVector(ifstream &file, bool txt);
 
 		/* Realiza a leitura do arquivo indicado, valida e extrai os dados. */
 		static int				lerArquivoGrafo(string nomeArquivo,

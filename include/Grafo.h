@@ -47,11 +47,11 @@ class Grafo
 		adequadas antes da inserção. */
 		void	addAresta(string rotulo1, string rotulo2, string grau);
 
-		/* Exibe de maneira formatada as Arestas existentes no Grafo. */
-		void	exibirArestas(void) const;
-
 		/* Exibe de maneira formatada os Vertices existentes no Grafo. */
 		void	exibirVertices(void) const;
+
+		/* Exibe de maneira formatada as Arestas existentes no Grafo. */
+		void	exibirArestas(void) const;
 
 		/* Exibe de maneira formatada os Vertices existentes no Grafo. */
 		void	exibirDensidade(void) const;
