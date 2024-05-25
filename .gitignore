@@ -12,5 +12,6 @@ teste
 ## Configurações ##
 .vscode/
 
-## Arquivos .txt de teste ##
+## Arquivos de teste ##
 teste*.txt
+teste*.csv
